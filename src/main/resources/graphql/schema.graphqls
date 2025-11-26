@@ -1,14 +1,19 @@
 type Query{
     getAllEtudiants : [Etudiant]
-    getEtudiant(id:Float):Etudiant
-    centres:[Centre]
+    getEtudiantById(id:Float):Etudiant
+    getAllCentres:[Centre]
     getCentreById(id:Float):Centre
 }
 type Mutation{
     addEtudiant(etudiantDTO : EtudiantDTO):Etudiant
     updateEtudiant(id:Float,etudiantDTO : EtudiantDTO):Etudiant
-    suppEtudiant(id:Float):String
+    deleteEtudiant(id:Float):String
 }
+type Subscription {
+    etudiantAdded: Etudiant
+    etudiantMoved: String
+}
+
 enum Genre {
     Homme,
     Femme
